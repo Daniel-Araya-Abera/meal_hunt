@@ -15,7 +15,8 @@ class HomePage extends StatelessWidget {
           brightness: Brightness.light,
         ),
         body: Container(
-          color: Colors.white60,
+//          color: Colors.white60,
+          color: Colors.orange[100],
           child: Column(
             children: [
               SizedBox(
@@ -79,7 +80,81 @@ class HomePage extends StatelessWidget {
                         elevation: 2,
                         splashColor: Colors.blue,
                         color: Colors.lightBlue,
-                        onPressed: () {},
+                        onPressed: () {
+                          String urlForsearchedMeal = searchMealByName;
+
+                          TextEditingController searchMealFieldController =
+                              new TextEditingController();
+                          showDialog(
+                              child: new Dialog(
+                                backgroundColor: Colors.blue[100],
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                elevation: 0,
+                                child: Container(
+                                  width: 200,
+                                  height: 200,
+                                  child: Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        20.0, 20.0, 20.0, 20.0),
+                                    child: new Column(
+                                      children: <Widget>[
+                                        Text(
+                                          "Enter your meal",
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            color: Colors.orange,
+                                          ),
+                                        ),
+                                        new TextField(
+                                          decoration: new InputDecoration(
+                                            fillColor: Colors.blue,
+                                            hintText: "Meal",
+                                          ),
+                                          controller: searchMealFieldController,
+                                        ),
+                                        new FlatButton(
+                                          child: new Text(
+                                            "Save",
+                                          ),
+                                          onPressed: () {
+                                            String searchedText =
+                                                searchMealFieldController.text;
+                                            print("curr url " +urlForsearchedMeal);
+                                            if (searchedText != "") {
+                                              urlForsearchedMeal += searchedText;
+
+                                              print("searched url is now " + urlForsearchedMeal);
+                                              print("accepted text " +searchedText);
+
+
+                                              Navigator.pop(context);
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) => MealDetailPage(
+                                                      url: urlForsearchedMeal,
+                                                    ),
+                                                  ));
+                                            } else {
+                                              print("empty param");
+
+                                            }
+
+//                                            setState(() {
+//                                              this._text = _c.text;
+//                                            });
+//                                        Navigator.pop(context);
+                                          },
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              context: context);
+                        },
                         child: Text("Search"),
                       ),
                     ),

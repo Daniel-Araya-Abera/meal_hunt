@@ -4,7 +4,7 @@ const mealDetail = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
 const randomMeal = "https://www.themealdb.com/api/json/v1/1/random.php";
 const mealCategories = "https://www.themealdb.com/api/json/v1/1/categories.php";
 const filterMealsByCategory = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
-
+const searchMealByName = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 //Search meal by name
 //https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata

@@ -237,7 +237,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 ),
               ),
             )
-          : Container(child: Text("loading..")),
+          : Container(child: Center(child: CircularProgressIndicator())),
     );
   }
 }
