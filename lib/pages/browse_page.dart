@@ -214,19 +214,42 @@ class _BrowsePageState extends State<BrowsePage> {
                                   ),
                                 )
                               : Container(
-                                  height: 240,
-                                  color: Colors.blue,
+                                  height: 220,
+//                                  color: Colors.blue,
                                   child: ListView.builder(
                                     scrollDirection: Axis.horizontal,
                                     itemCount: 4,
                                     itemBuilder:
                                         (BuildContext context, int index) {
-                                      return Container(
-                                        color: Colors.orange,
-                                        height: 120,
-                                        width: 200,
-                                        child: Text("loading.."),
-                                      );
+//                                      return Container(
+//                                        color: Colors.orange,
+//                                        height: 120,
+//                                        width: 200,
+//                                        child: Text("loading.."),
+//                                      );
+                                        return Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 10.0),
+                                            child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(40.0),
+                                              child: Stack(
+                                                children: [
+                                                  Container(
+                                                    width: 200,
+//                                              height: 120,
+                                                    height: 220,
+                                                    color: Colors.grey[200],
+                                                    child: ClipRRect(
+//                                                    borderRadius: BorderRadius.all(
+//                                                        Radius.elliptical(400, 90)),
+//                                                      child: Image.network("https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg"),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          );
+
                                     },
                                   ),
                                 ),
